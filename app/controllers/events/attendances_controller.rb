@@ -15,4 +15,8 @@ class Events::AttendancesController < ApplicationController
     current_user.cancel_attend(@event)
     redirect_back(fallback_location: root_path, success: '申込をキャンセルしました')
   end
+
+  def show
+    @event = Event.find(params[:event_id])
+  end
 end
